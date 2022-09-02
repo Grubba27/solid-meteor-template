@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import Logo from './logo.svg';
 import styles from './App.module.css';
 import { LinksCollection} from '../api/links';
 import { Tracker } from "meteor/tracker";
@@ -11,7 +11,7 @@ function App() {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
+        <Logo class={styles.logo} />
         <p>
           Edit <code>src/App.jsx</code> and save to reload.
         </p>
