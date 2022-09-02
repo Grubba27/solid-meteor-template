@@ -7,6 +7,6 @@ export default defineConfig({
     defaultExport: 'component',
   })],
   meteor: {
-    clientEntry: 'client/main.jsx',
+    clientEntry: 'imports/ui/main.jsx',
   },
 });
