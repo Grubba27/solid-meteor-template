@@ -1,40 +1,19 @@
-import Logo from './logo.svg';
-import styles from './App.module.css';
-import { LinksCollection} from '../api/links';
-import { Tracker } from "meteor/tracker";
-import { createSignal, For } from "solid-js";
+import {Hello} from "./Hello";
+import {Info} from "./Info";
+import {Meteor} from "meteor/meteor";
+
 function App() {
-  const [links, setLinks] = createSignal([]);
-  Tracker.autorun(function () {
-    setLinks(LinksCollection.find().fetch());
-  });
-  return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <Logo class={styles.logo} />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-        <ul>
-          <For each={links()}>{(link) =>
-            <li>
-              <a target="_blank" href={link.url}>
-                {link.title}
-              </a>
-            </li>
-          }</For>
-        </ul>
-      </header>
-    </div>
-  );
+
+    return (
+        <div>
+            <h1>Welcome to Meteor!</h1>
+            <Hello/>
+            <button onClick={() => Meteor.call('insertLink',  'opa',  'https://www.meteor.com/tutorials/react/creating-an-app' )}>
+                Click Me to add link
+            </button>
+            <Info/>
+        </div>
+    );
 }
 
 export default App;
